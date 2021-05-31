@@ -8,12 +8,15 @@ import AppNavbar from './AppNavbar';
 import { login, logout, selectUser } from './features/userSlice';
 import Login from './Login/Login';
 import {auth } from './firebase'
+import MessagesShow from './MessagesShow/Message';
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
+    
       if (authUser) {
+        console.log(authUser.uid,);
         dispatch(
           login({
             uid: authUser.uid,
@@ -21,24 +24,26 @@ function App() {
             email: authUser.email,
             displayName: authUser.displayName,
 
+
           })
         );
       }
+     
       else{
         dispatch(logout());
       }
     })
   },[]
   )
-
+ 
   return (
     <div className='app'>
+
       {user ? <Anytalk></Anytalk> : <Login></Login>}
-
-
 
     </div>
   );
 }
 
 export default App;
+

@@ -42,13 +42,13 @@ const Sidebar = () => {
     return (
         <div className="sidebar" >
             <div className="sidebarChat">
-                <div className="iconBar">
+               
                     <IconButton className={classes.root}>
-                        <Avatar onClick={auth.signOut} src={user.photo} className="iconSize" fontSize="large" />
+                    <Avatar onClick={() => auth.signOut()} src={user.photo} className="iconSize" fontSize="large" />
                     </IconButton>
-                </div>
+               
                 <div className="sidebarChat__info">
-                    <h3>Name</h3>
+                    <h3>{user.displayName}</h3>
                 </div>
             </div>
             <div className="sidebarChat" onClick={addChat}>

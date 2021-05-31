@@ -3,7 +3,7 @@
     flex-direction: column;
     flex: 0.6;
     flex: 1;
-    height: auto;
+    height: 100vh;
     background-color: white;
 }
 
@@ -52,4 +52,21 @@
 
 .chat__messages{
     flex:1;
+    
+}
+.chat__messages {
+    overflow: scroll;
+}
+
+.chat__messages::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+.chat__messages {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
